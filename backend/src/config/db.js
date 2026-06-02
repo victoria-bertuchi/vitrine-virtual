@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const conectarBanco = async () => {
   try {
-    const conexao = await mongoose.connect(process.env.MONGO_URI);
+    const conexao = await mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/vitrine_virtual");
     console.log(`MongoDB Conectado: ${conexao.connection.host}`);
   } catch (erro) {
     console.error(`Erro ao conectar no MongoDB: ${erro.message}`);
